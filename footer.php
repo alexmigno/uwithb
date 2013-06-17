@@ -8,16 +8,21 @@
  */
 ?>
 
-	</div><!-- #main -->
+</div><!-- #main -->
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<?php do_action( 'uwithb_credits' ); ?>
-			<a href="http://wordpress.org/" title="<?php esc_attr_e( 'A Semantic Personal Publishing Platform', 'uwithb' ); ?>" rel="generator"><?php printf( __( 'Proudly powered by %s', 'uwithb' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %1$s by %2$s.', 'uwithb' ), 'uwithb', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+<footer id="colophon" class="site-footer row" role="contentinfo">
+    <div id="copyright" class="span8">
+        <?php
+        global $crimson;
+        echo $crimson['copyright'];
+        ?>
+    </div>
+
+    <div id="credits-privacy" class="span4">
+        <a href="http://www.asernet.it" title="Credits" target="_blank">Credits</a> | 
+        <a href="<?php bloginfo("url"); ?>/privacy" title="Privacy">Privacy</a> | 
+    </div><!-- credits-privacy -->
+</footer><!-- #colophon -->
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

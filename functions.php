@@ -9,7 +9,7 @@
  * Set the content width based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) )
-	$content_width = 640; /* pixels */
+	$content_width = 620; /* pixels */
 
 if ( ! function_exists( 'uwithb_setup' ) ) :
 /**
@@ -39,7 +39,7 @@ function uwithb_setup() {
 	 *
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
-	//add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'post-thumbnails' );
 
 	/**
 	 * This theme uses wp_nav_menu() in one location.
@@ -51,7 +51,7 @@ function uwithb_setup() {
 	/**
 	 * Enable support for Post Formats
 	 */
-	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
+	// add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
 }
 endif; // uwithb_setup
 add_action( 'after_setup_theme', 'uwithb_setup' );
@@ -96,8 +96,8 @@ function uwithb_widgets_init() {
 		'id'            => 'sidebar-1',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
 	) );
 }
 add_action( 'widgets_init', 'uwithb_widgets_init' );
@@ -146,4 +146,37 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+
+
+/**************** Inclusioni dalla cartella THEME ****************/
+/*****************************************************************/
+//Decommentare quelle che servono, a seconda del progetto
+include "crimson/crimsonAddCSSAndJavascriptLibraries.php";
+include "crimson/crimsonAddCrimsonNoteIntoAdminArea.php";
+// include "crimson/crimsonAddOpenGraphForPosts.php";
+// include "crimson/crimsonCreateCustomImageSize.php";
+// include "crimson/crimsonCreateCustomPostType.php";
+// include "crimson/crimsonCreateCustomTaxnonomies.php";
+include "crimson/crimsonCreateOptionsPage.php";
+// include "crimson/crimsonCreatePagination.php";
+include "crimson/crimsonCreatePrivacy.php";
+// include "crimson/crimsonCustomLoginLogo.php";
+include "crimson/crimsonCustomPath.php";
+// include "crimson/crimsonFilterPostTypeByTaxonomyIntoAdmin.php";
+// include "crimson/crimsonGetCurrentCleanURL.php";
+include "crimson/crimsonRemoveAttachmentImageLinkFromContent.php";
+// include "crimson/crimsonSocialLikeByThemeOptions.php";
+// include "crimson/crimsonSocialShareByThemeOptions.php";
+
+
+
+
+/**************** Opzioni del tema CRIMSON ****************/
+/*****************************************************************/
+$crimson = array();
+$crimson = get_option( 'crimson_theme_options' ); 
+
+
+
 
