@@ -52,7 +52,8 @@ function crimsonContentOptionsPage() {
 	<?php settings_fields( 'crimson_options' ); ?>  
 	
 	<?php $options = get_option( 'crimson_theme_options' ); ?> 
-
+        
+        <input class="button-primary" type="submit" value="<?php _e( 'Salva Opzioni', 'crimsontheme' ); ?>" />
 	<table class="form-table">
 	<!-- iframe da un altro sito. Es informazioni sul tema, lo sviluppatore,... -->
 	<tr valign="top"><td>

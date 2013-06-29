@@ -1,6 +1,8 @@
 <?php
 /**
  * @package uwithb
+ * Called by archive.php
+ * 
  */
 ?>
 

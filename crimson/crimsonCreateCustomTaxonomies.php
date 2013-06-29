@@ -8,7 +8,7 @@
  function crimsonCreateCustomTaxonomies() {
 	register_taxonomy(
 		'Nazione',
-		'gruppi-in-visita',
+		array('post','video'),
 		array(
 			'label' => __( 'Nazione' ),
 			'sort' => true,
@@ -19,7 +19,7 @@
 		)
 	);
 }
-add_action( 'init', 'nazione_init' );
+add_action( 'init', 'crimsonCreateCustomTaxonomies' );
 
 
 ?>
