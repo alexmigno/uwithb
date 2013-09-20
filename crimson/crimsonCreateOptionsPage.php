@@ -142,7 +142,23 @@ function crimsonContentOptionsPage() {
 	<tr valign="top"><th scope="row">
 	<?php _e( 'Youtube URL', 'crimsontheme' ); ?></th>
 	<td>
-	<input size="100" id="crimson_theme_options[yourl]" type="text" name="crimson_theme_options[yourl]" value="<?php esc_attr_e( $options['yuurl'] ); ?>" />
+	<input size="100" id="crimson_theme_options[yourl]" type="text" name="crimson_theme_options[yourl]" value="<?php esc_attr_e( $options['yourl'] ); ?>" />
+	</td>
+	</tr>
+	
+	<!-- tripadvisor -->
+	<tr valign="top"><th scope="row">
+	<?php _e( 'Tripadvisor', 'crimsontheme' ); ?></th>
+	<td>
+	<input size="100" id="crimson_theme_options[trurl]" type="text" name="crimson_theme_options[trurl]" value="<?php esc_attr_e( $options['trurl'] ); ?>" />
+	</td>
+	</tr>
+	
+	<!-- booking -->
+	<tr valign="top"><th scope="row">
+	<?php _e( 'Booking.com', 'crimsontheme' ); ?></th>
+	<td>
+	<input size="100" id="crimson_theme_options[bourl]" type="text" name="crimson_theme_options[bourl]" value="<?php esc_attr_e( $options['bourl'] ); ?>" />
 	</td>
 	</tr>
 	

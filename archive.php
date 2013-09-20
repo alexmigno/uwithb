@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-<section id="primary" class="span8">
+<section id="primary" class="coo-md-8">
     <div id="content" role="main">
 
         <?php if (have_posts()) : ?>

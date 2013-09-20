@@ -147,73 +147,43 @@ require get_template_directory() . '/inc/jetpack.php';
 
 
 
-/**
- * class Bootstrap_Walker_Nav_Menu()
- *
- * Extending Walker_Nav_Menu to modify class assigned to submenu ul element
- *
- * @author Rachel Baker
- * @author Mike Bijon (updates & PHP strict standards only)
- *
- **/
-class Bootstrapwp_Walker_Nav_Menu extends Walker_Nav_Menu {
+
+/* * ************** Inclusione TGM PLUGIN ACTIVATION *************** */
+/* * ************************************************************** */
+require_once 'plugins/class-tgm-plugin-activation.php';
+require_once 'plugins/plugins-list.php';
 
 
-    /**
-     * Opening tag for menu list before anything is added
-     *
-     *
-     * @param array reference       &$output    Reference to class' $output
-     * @param int                   $depth      Depth of menu (if nested)
-     * @param array                 $args       Class args, unused here
-     *
-     * @return string $indent
-     * @return array by-reference   &$output
-     *
-     */
-    function start_lvl( &$output, $depth = 0, $args = array() ) {
-
-        $indent = str_repeat("\t", $depth);
-        $output .= "\n$indent<ul class=\"dropdown-menu\">\n";
-    }
-
-    /**
-     * @see Walker::end_lvl()
-     * @since 3.0.0
-     *
-     * @param string $output Passed by reference. Used to append additional content.
-     * @param int $depth Depth of page. Used for padding.
-     */
-    function end_lvl( &$output, $depth = 0, $args = array() ) {
-        $indent = str_repeat("\t", $depth);
-        $output .= "$indent</ul>\n";
-    }
-
+/* * ************** opzioni Tema con Advanced Custom Fields *************** */
+/* * ************************************************************** */
+add_filter('acf/options_page/settings','my_options_page_settings');
+function my_options_page_settings($options){   
+    $options["title"] = "Opzioni tema";
+    return $options;
 }
 
 
-
-/* * ************** Inclusioni dalla cartella THEME *************** */
+/* * ************** Inclusioni dalla cartella CRIMSON *************** */
 /* * ************************************************************** */
 //Decommentare quelle che servono, a seconda del progetto
+include "crimson/crimsonAddACFNoteIntoAdminArea.php";
 include "crimson/crimsonAddCSSAndJavascriptLibraries.php";
 include "crimson/crimsonAddCrimsonNoteIntoAdminArea.php";
+//include "crimson/crimsonBootstrapWalkerNavMenu.php";
 // include "crimson/crimsonAddOpenGraphForPosts.php";
-// include "crimson/crimsonCreateCustomImageSize.php";
-// include "crimson/crimsonCreateCustomPostType.php";
+include "crimson/crimsonCreateCustomImageSize.php";
+include "crimson/crimsonCreateCustomPostType.php";
 // include "crimson/crimsonCreateCustomTaxonomies.php";
-include "crimson/crimsonCreateOptionsPage.php";
+// include "crimson/crimsonCreateOptionsPage.php";
 // include "crimson/crimsonCreatePagination.php";
 include "crimson/crimsonCreatePrivacy.php";
-// include "crimson/crimsonCustomLoginLogo.php";
+include "crimson/crimsonCustomLoginLogo.php";
 include "crimson/crimsonCustomPath.php";
 // include "crimson/crimsonFilterPostTypeByTaxonomyIntoAdmin.php";
 // include "crimson/crimsonGetCurrentCleanURL.php";
 include "crimson/crimsonRemoveAttachmentImageLinkFromContent.php";
 // include "crimson/crimsonSocialLikeByThemeOptions.php";
 // include "crimson/crimsonSocialShareByThemeOptions.php";
-
-
 
 
 /* * ************** Opzioni del tema CRIMSON *************** */
@@ -223,8 +193,12 @@ $crimson = get_option('crimson_theme_options');
 
 
 
-
-
+/* * ************** funzioni UTILI *************** */
+/* * ************************************************************** */
+include 'inc/uwbGetCurrentURL.php';
+include 'inc/uwbGetItemsIDByArgs.php';
+include "inc/uwbGetThumbnailByIDPost.php";
+include "inc/uwbGetCustomExcerpt.php";
 
 
 

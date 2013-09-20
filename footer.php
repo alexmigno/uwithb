@@ -11,17 +11,19 @@
 </div><!-- #main -->
 
 <footer id="footer" class="row" role="contentinfo">
-    <div id="copyright" class="span8">
+    <div id="footer-content">
+    <div id="copyright" class="col-md-8">
         <?php
         global $crimson;
         echo $crimson['copyright'];
         ?>
     </div><!--copyright -->
 
-    <div id="credits-privacy" class="span4">
+    <div id="credits-privacy" class="col-md-4">
         <a href="http://www.asernet.it" title="Credits" target="_blank">Credits</a> | 
         <a href="<?php bloginfo("url"); ?>/privacy" title="Privacy">Privacy</a> | 
     </div><!-- credits-privacy -->
+    </div><!-- #footer-content -->
 </footer><!-- #footer -->
 </div><!-- #container -->
 

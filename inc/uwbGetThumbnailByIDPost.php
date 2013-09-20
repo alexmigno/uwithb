@@ -11,8 +11,18 @@
 function uwbGetThumbnailByIDPost($idPost, $size = "thumbnail", $default = true) {
 
     $thumbnail = wp_get_attachment_image_src(get_field("testata", $idPost), $size);
-    //se il thumbnail non c'è, carico una immagine in evidenza
 
+	//se il thumbnail non c'è, carico una immagine dalla galleria fotografica
+    if (empty($thumbnail[0])){
+	    if (get_field('lista_immagini')):
+	    	while (has_sub_field('lista_immagini') && empty($thumbnail[0])) {
+	    		$immagineGalleria = get_sub_field("immagine");
+	    		$thumbnail[0] = $immagineGalleria['sizes'][$size];
+	    	}
+	    endif;
+    }
+
+    //se il thumbnail non c'è, carico una immagine in evidenza
     if (empty($thumbnail[0]))
         $thumbnail = wp_get_attachment_image_src(get_post_thumbnail_id($idPost), $size);
 

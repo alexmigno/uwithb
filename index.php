@@ -13,7 +13,7 @@
 get_header();
 ?>
 
-<div id="primary" class="span8">
+<div id="primary" class="col-md-8">
     <div id="content" role="main">
 
         <?php if (have_posts()) : ?>

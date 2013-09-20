@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Redirect To First Child
+Template Name: Reindirizza al primo figlio
 */
 
 if (have_posts()) {

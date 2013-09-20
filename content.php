@@ -19,19 +19,16 @@
 
     <?php if (is_search() || is_archive()) : // Only display Excerpts for Search ?>
         <div class="entry-summary row-fluid">
-            <div class="entry-thumbnail span4">
+            <div class="entry-thumbnail col-md-4">
                 <?php
-                $thumbnail = wp_get_attachment_image_src(get_post_thumbnail_id(), 'medium');
-                //se la thumbnail non c'�, carico una immagine di default
-                if (empty($thumbnail[0]))
-                    $thumbnail[0] = get_bloginfo("template_url") . "/img/default-medium.jpg";
+                $thumbnail = uwbGetThumbnailByIDPost(get_the_ID(),'medium',true);
                 ?>
                 <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-                    <img src="<?php echo $thumbnail[0]; ?>" alt="<?php the_title(); ?>" />
+                    <img src="<?php echo $thumbnail; ?>" alt="<?php the_title(); ?>" />
                 </a>
             </div><!-- entry-thumbnail -->
 
-            <div class="entry-excerpt span8">
+            <div class="entry-excerpt col-md-8">
                 <?php the_excerpt(); ?>
             </div>
         </div><!-- .entry-summary -->

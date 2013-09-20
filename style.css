@@ -27,6 +27,7 @@ and Blueprint http://www.blueprintcss.org/
 
 Css sections order:
 
+0. Colors
 1. Layout
 2. Header
 3. Content
@@ -35,11 +36,19 @@ Css sections order:
 6. Responsive
 */
 
-
+/* =0.Colors
+-------------------------------------------------------------- */
+.grey{color: #707173}
+.darkGrey{color: #b1b3b4}
+.greenWather{color: #2294ae}
+.green{color: #83c125}
 
 
 /* =1.Layout and Utilty
 -------------------------------------------------------------- */
+
+.borderRadius5{-webkit-border-radius: 5px; border-radius: 5px;}
+.borderRadius10{-webkit-border-radius: 10px; border-radius: 10px;}
 
 .noBorder{ border: 0px solid #000;}
 .noBackground{background: transparent;}
@@ -98,7 +107,9 @@ img.aligncenter{
 
 /* =2.Header
 -------------------------------------------------------------- */
+#header{}
 
+#header-content{}
 
 /* =3.Content
 -------------------------------------------------------------- */
@@ -110,6 +121,9 @@ img.aligncenter{
 
 /* =5.Footer
 -------------------------------------------------------------- */
+#footer{}
+
+#footer-content{}
 
 
 /* =6.Responsive

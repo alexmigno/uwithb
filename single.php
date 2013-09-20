@@ -7,8 +7,8 @@
 get_header();
 ?>
 
-<section id="primary" class="span8">
-    <div id="content"role="main">
+<section id="primary" class="col-md-8">
+    <div id="content" role="main">
 
         <?php while (have_posts()) : the_post(); ?>
 
@@ -17,9 +17,12 @@ get_header();
             <?php uwithb_content_nav('nav-below'); ?>
 
             <?php
+            $visualizzaCommenti = get_field("box_commenti","options");
             // If comments are open or we have at least one comment, load up the comment template
-            if (comments_open() || '0' != get_comments_number())
-                comments_template();
+            if($visualizzaCommenti){
+            	if (comments_open() || '0' != get_comments_number())
+                	comments_template();
+            }
             ?>
 
         <?php endwhile; // end of the loop. ?>

@@ -19,21 +19,46 @@
         <link rel="profile" href="http://gmpg.org/xfn/11" />
         <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
+        <!-- Google Web Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+
+        <!-- Font Awesome -->
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
         <?php wp_head(); ?>
     </head>
 
     <body <?php body_class(); ?>>
-        <div id="container" class="container">
-            <?php do_action('before'); ?>
-            <header id="header" class="row" role="banner">
-                <div class="site-branding">
-                    <h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
-                    <h2 class="site-description"><?php bloginfo('description'); ?></h2>
-                </div>
+        <?php do_action('before'); ?>
+        <header id="header" class="" role="banner">
+            <div id="header-content" class="container">
+                <div class="row">
+                    <div id="header-logo" class="col-md-4">
+                        <a href="<?php echo esc_url(home_url('/')); ?>" title="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>" rel="home">
+                            <img src="<?php echo IMAGESPATH; ?>/header-logo.png" />
+                        </a>
+                    </div><!-- #header-logo -->
 
-                <nav id="site-navigation" class="navigation-main navbar" role="navigation">
-                    <?php wp_nav_menu(array('theme_location' => 'primary', 'menu_class' => 'nav', 'container_class' => 'navbar-inner')); ?>
-                </nav><!-- #site-navigation -->
-            </header><!-- #header -->
+                    <div id="menu-principale" class="col-md-7">
+                        <nav id="site-navigation" class="navigation-main navbar" role="navigation">
+                            <?php wp_nav_menu(array('theme_location' => 'primary', 'menu_class' => 'nav noList horizontalList', 'container_class' => 'navbar-inner')); ?>
+                        </nav><!-- #site-navigation -->
+                    </div><!-- #menu-principale -->
+                    <div class="col-md-1">
+                        <a href="javascript:void(0)" class="btn btn-default" id="linkToPrivateArea">
+                            <i class="icon-lock"></i>
+                            Login
+                        </a>
+                    </div>
+                </div><!-- .row -->
+            </div><!-- #header-content -->
 
-            <div id="main" class="row">
+        </header><!-- #header -->
+
+        <?php
+        if (is_home())
+            include "template/box-home-slider.php";
+        ?>
+
+
+        <div id="main" class="row">
